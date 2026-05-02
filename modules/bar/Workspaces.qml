@@ -9,9 +9,8 @@ import qs.config
 Rectangle {
 	readonly property int workspaceCount: 10
 
-	width: parent.width * 11/15
-	height: cl.implicitHeight + Global.spacing * 2
-	Layout.alignment: Qt.AlignHCenter
+	Layout.fillWidth: true
+	Layout.fillHeight: true
 
 	color: Global.colors.foreground
 	radius: Global.borderRadius
@@ -20,9 +19,7 @@ Rectangle {
 		id: cl
 
 		anchors {
-			left: parent.left
-			right: parent.right
-			top: parent.top
+			fill: parent
 			margins: Global.spacing
 		}
 		spacing: Global.spacing

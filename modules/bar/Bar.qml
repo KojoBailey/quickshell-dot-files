@@ -27,6 +27,8 @@ Scope {
 				anchors {
 					topMargin: Global.spacing
 					bottomMargin: Global.spacing
+					leftMargin: Global.spacing
+					rightMargin: Global.spacing
 				}
 
 				// Top
