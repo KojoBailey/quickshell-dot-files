@@ -3,17 +3,19 @@ import Quickshell.Io
 import QtQuick
 import QtQuick.Layouts
 
+import qs.config
+
 Rectangle {
 	id: wifiWidget
 
 	property bool isConnected: false
 	property string ssid: "..."
 
-	width: 20
+	Layout.fillWidth: true
 	Layout.preferredHeight: hoverHandler.hovered ? 120 : 20
-	Layout.alignment: Qt.AlignHCenter
-	radius: root.borderRadius
-	color: root.colSecondaryBg
+
+	radius: Global.borderRadius
+	color: Global.colors.foreground
 
 	Behavior on Layout.preferredHeight {
 		NumberAnimation {

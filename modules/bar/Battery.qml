@@ -3,18 +3,18 @@ import Quickshell.Io
 import QtQuick
 import QtQuick.Layouts
 
-Rectangle {
-	id: batteryWidget
+import qs.config
 
+Rectangle {
 	property int chargeMax: 60
 	property int percent: 69
 	property bool isCharging: false
 
-	width: 20
-	height: 40
-	Layout.alignment: Qt.AlignHCenter
-	radius: root.borderRadius
-	color: root.colSecondaryBg
+	Layout.fillWidth: true
+	Layout.preferredHeight: 40
+
+	radius: Global.borderRadius
+	color: Global.colors.foreground
 
 	FileView {
 		path: "/sys/class/power_supply/BAT0/charge_control_end_threshold"

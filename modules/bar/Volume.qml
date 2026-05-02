@@ -4,6 +4,8 @@ import Quickshell.Services.Pipewire
 import QtQuick
 import QtQuick.Layouts
 
+import qs.config
+
 Rectangle {
 	id: volumeWidget
 	readonly property PwNode sink: Pipewire.defaultAudioSink
@@ -14,11 +16,11 @@ Rectangle {
 		objects: [sink]
 	}
 
-	width: 20
+	Layout.fillWidth: true
 	Layout.preferredHeight: hoverHandler.hovered ? 140 : 40
-	Layout.alignment: Qt.AlignHCenter
-	radius: root.borderRadius
-	color: root.colSecondaryBg
+
+	radius: Global.borderRadius
+	color: Global.colors.foreground
 
 	Behavior on Layout.preferredHeight {
 		NumberAnimation {
