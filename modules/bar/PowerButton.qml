@@ -2,24 +2,23 @@ import Quickshell
 import QtQuick
 import QtQuick.Layouts
 
+import qs.config
+
 Rectangle {
-	width: 20
-	height: 20
-	Layout.alignment: Qt.AlignHCenter
-	radius: root.borderRadius
-	color: root.colSecondaryBg
+	Layout.fillWidth: true
+	Layout.preferredHeight: this.width
+
+	color: Global.colors.foreground
+	radius: Global.borderRadius
 
 	Text {
+		anchors.centerIn: parent
+
 		text: "󰣇"
-		color: "#CC0000"
+		color: "#CC0000" // dark-ish red
 		font {
-			pixelSize: 13
+			pixelSize: parent.width * 0.6
 			bold: true
 		}
-
-		width: parent.width - 2.5
-		height: parent.height - 1
-		horizontalAlignment: Text.AlignHCenter
-		verticalAlignment: Text.AlignVCenter
 	}
 }
