@@ -13,7 +13,7 @@ Rectangle {
 	property string inactiveWorkspaceSymbol: "●"
 
 	Layout.fillWidth: true
-	Layout.preferredHeight: implicitHeight + cl.anchors.topMargin + cl.anchors.bottomMargin
+	Layout.preferredHeight: cl.implicitHeight + cl.anchors.topMargin + cl.anchors.bottomMargin
 
 	color: Global.colors.foreground
 	radius: Global.borderRadius
