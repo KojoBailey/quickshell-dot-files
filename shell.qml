@@ -9,11 +9,13 @@ ShellRoot {
 
 	ReloadPopup {}
 
-	Bar {}
+	Variants {
+		model: Quickshell.screens
+		Bar {}
+	}
 
 	Variants {
 		model: Quickshell.screens
-
 		ActivateLinux {
 			lang: ActivateLinux.Language.English
 			textSize: 14
