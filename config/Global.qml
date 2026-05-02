@@ -16,7 +16,7 @@ Singleton {
 		readonly property color foreground2: "#0AFFFFFF" // lighter tree brown
 
 		readonly property color textLight: "white"
-		readonly property color textdark: "black"
+		readonly property color textDark: "black"
 		readonly property color textGray: "#404040"
 	}
 

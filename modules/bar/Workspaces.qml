@@ -16,8 +16,6 @@ Rectangle {
 	radius: Global.borderRadius
 
 	ColumnLayout {
-		id: cl
-
 		anchors {
 			fill: parent
 			margins: Global.spacing
@@ -49,8 +47,8 @@ Rectangle {
 				Text {
 					id: text
 					readonly property int trueIndex: index + 1
-					property var workspace: Hyprland.workspaces.values.find(w => w.id === trueIndex)
-					property bool isActive: Hyprland.focusedWorkspace?.id === trueIndex
+					readonly property var workspace: Hyprland.workspaces.values.find(w => w.id === trueIndex)
+					readonly property bool isActive: Hyprland.focusedWorkspace?.id === trueIndex
 
 					width: parent.width
 					height: parent.height
@@ -66,7 +64,7 @@ Rectangle {
 
 					font {
 						family: Global.fonts.monospaceFamily
-						pixelSize: workspace ? 10 : 5
+						pixelSize: workspace ? this.width * 0.7 : this.width * 0.35
 						bold: true
 					}
 
