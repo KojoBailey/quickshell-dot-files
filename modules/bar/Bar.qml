@@ -3,18 +3,13 @@ import Quickshell.Io
 import QtQuick
 import QtQuick.Layouts
 
+import qs.config
+
 Scope {
 	Variants {
 		model: Quickshell.screens;
 
 		PanelWindow {
-			id: root
-
-			property string fontFamily: "JetBrainsMono Nerd Font"
-			property string colSakura: "#ffb8d0"
-			property string colSecondaryBg: "#211913"
-			property int borderRadius: 4
-
 			required property var modelData
 			screen: modelData
 
@@ -24,14 +19,14 @@ Scope {
 				bottom: true
 			}
 			width: 30
-			color: "#0f0904"
+			color: Global.colors.background
 
 			ColumnLayout {
 				anchors.fill: parent
-				spacing: 5
+				spacing: Global.spacing
 				anchors {
-					topMargin: 4
-					bottomMargin: 4
+					topMargin: Global.spacing
+					bottomMargin: Global.spacing
 				}
 
 				// Top
@@ -48,7 +43,7 @@ Scope {
 			}
 
 			// Middle
-			ClockWidget {
+			Clock {
 				anchors.centerIn: parent
 			}
 		}

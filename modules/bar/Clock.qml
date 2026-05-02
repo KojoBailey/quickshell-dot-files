@@ -1,6 +1,8 @@
 import QtQuick
 import QtQuick.Layouts
 
+import qs.services
+
 Rectangle {
 	property int fontSize: 12
 
@@ -53,7 +55,7 @@ Rectangle {
 		anchors.centerIn: parent
 
 		ClockText {
-			text: Time.hour  
+			text: Time.strings.hour  
 		}
 
 		ClockText {
@@ -66,7 +68,7 @@ Rectangle {
 		}
 
 		ClockText {
-			text: Time.minute  
+			text: Time.strings.minute  
 		}
 	}
 
@@ -78,16 +80,16 @@ Rectangle {
 		anchors.centerIn: parent
 
 		ClockText {
-			text: Time.year
+			text: Time.strings.year
 		}
 
 		ClockText {
-			text: Time.month
+			text: Time.strings.month
 			color: root.colSakura
 		}
 
 		ClockText {
-			text: Time.day
+			text: Time.strings.day
 		}
 	}
 }

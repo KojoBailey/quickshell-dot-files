@@ -1,0 +1,93 @@
+import Quickshell
+import Quickshell.Wayland
+import Quickshell.Hyprland
+import QtQuick
+import QtQuick.Layouts
+
+import qs.config
+
+Rectangle {
+	readonly property int workspaceCount: 10
+
+	width: parent.width * 11/15
+	height: cl.implicitHeight + Global.spacing * 2
+	Layout.alignment: Qt.AlignHCenter
+
+	color: Global.colors.foreground
+	radius: Global.borderRadius
+
+	ColumnLayout {
+		id: cl
+
+		anchors {
+			left: parent.left
+			right: parent.right
+			top: parent.top
+			margins: Global.spacing
+		}
+		spacing: Global.spacing
+
+		Repeater {
+			model: workspaceCount
+
+			Rectangle {
+				Layout.fillWidth: true
+				Layout.preferredHeight: text.isActive ? this.width * 13/7 : this.width
+				color: text.isActive ? Global.colors.primary : Global.colors.foreground2
+				radius: Global.borderRadius
+
+				Behavior on Layout.preferredHeight {
+					NumberAnimation {
+						duration: Global.animationDurationMS
+						easing.type: Easing.OutCubic
+					}
+				}
+				Behavior on color {
+					ColorAnimation {
+						duration: Global.animationDurationMS
+						easing.type: Easing.OutCubic
+					}
+				}
+
+				Text {
+					id: text
+					readonly property int trueIndex: index + 1
+					property var workspace: Hyprland.workspaces.values.find(w => w.id === trueIndex)
+					property bool isActive: Hyprland.focusedWorkspace?.id === trueIndex
+
+					width: parent.width
+					height: parent.height
+					horizontalAlignment: Text.AlignHCenter
+					verticalAlignment: Text.AlignVCenter
+
+					text: workspace ? trueIndex % 10 : "●"
+
+					color: isActive ? Global.colors.textDark
+						: hoverHandler.hovered ? Global.colors.primary
+						: workspace ? Global.colors.textLight
+						: Global.colors.textGray
+
+					font {
+						family: Global.fonts.monospaceFamily
+						pixelSize: workspace ? 10 : 5
+						bold: true
+					}
+
+					Behavior on color {
+						ColorAnimation {
+							duration: Global.animationDurationMS
+							easing.type: Easing.OutCubic
+						}
+					}
+
+					HoverHandler { id: hoverHandler }
+
+					MouseArea {
+						anchors.fill: parent
+						onClicked: Hyprland.dispatch(`workspace ${trueIndex}`)
+					}
+				}
+			}
+		}
+	}
+}
