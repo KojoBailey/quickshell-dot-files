@@ -1,16 +1,22 @@
 import Quickshell
+import QtQuick
 
+import "modules"
 import "modules/bar"
 
 ShellRoot {
 	settings.watchFiles: true
-		
+
 	ReloadPopup {}
 
 	Bar {}
 
-	ActivateLinux {
-		lang: "en"
-		textSize: 14
+	Variants {
+		model: Quickshell.screens
+
+		ActivateLinux {
+			lang: ActivateLinux.Language.English
+			textSize: 14
+		}
 	}
 }
