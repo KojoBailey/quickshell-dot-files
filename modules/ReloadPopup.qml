@@ -7,7 +7,6 @@ Scope {
 	property bool failed;
 	property string errorString;
 
-	// Connect to the Quickshell global to listen for the reload signals.
 	Connections {
 		target: Quickshell
 
@@ -21,7 +20,7 @@ Scope {
 
 		function onReloadFailed(error: string) {
 			Quickshell.inhibitReloadPopup();
-			
+
 			popupLoader.active = false;
 			popupLoader.active = true;
 
@@ -31,8 +30,6 @@ Scope {
 		}
 	}
 
-	// Keep the popup in a loader because it isn't needed most of the timeand will take up
-	// memory that could be used for something else.
 	LazyLoader {
 		id: popupLoader
 
@@ -62,15 +59,10 @@ Scope {
 				implicitHeight: layout.implicitHeight + (failed ? 50 : 40) 
 				implicitWidth: layout.implicitWidth + 30
 
-				// Fills the whole area of the rectangle, making any clicks go to it,
-				// which dismiss the popup.
 				MouseArea {
 					id: mouseArea
 					anchors.fill: parent
 					onClicked: popupLoader.active = false
-
-					// makes the mouse area track mouse hovering, so the hide animation
-					// can be paused when hovering.
 					hoverEnabled: true
 				}
 
@@ -90,13 +82,11 @@ Scope {
 					Text {
 						text: root.errorString
 						color: "white"
-						// When visible is false, it also takes up no space.
 						visible: root.errorString != ""
 					}
 				}
 
-				// A progress bar on the bottom of the screen, showing how long until the
-				// popup is removed.
+				/* Progress Bar */
 				Rectangle {
 					id: bar
 					color: "#20ffffff"
@@ -114,17 +104,10 @@ Scope {
 						duration: failed ? 10000 : 800
 						onFinished: popupLoader.active = false
 
-						// Pause the animation when the mouse is hovering over the popup,
-						// so it stays onscreen while reading. This updates reactively
-						// when the mouse moves on and off the popup.
 						paused: mouseArea.containsMouse
 					}
 				}
 
-				// We could set `running: true` inside the animation, but the width of the
-				// rectangle might not be calculated yet, due to the layout.
-				// In the `Component.onCompleted` event handler, all of the component's
-				// properties and children have been initialized.
 				Component.onCompleted: anim.start()
 			}
 		}
