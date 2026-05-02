@@ -1,14 +1,18 @@
 import QtQuick
 import QtQuick.Layouts
 
+import qs.config
 import qs.services
 
 Rectangle {
-	property int fontSize: 12
+	readonly property int fontSize: 12
 
 	width: parent.width
-	implicitHeight: 70
-	color: root.colSecondaryBg
+	height: 70
+
+	HoverHandler { id: hoverHandler }
+
+	color: Global.colors.foreground
 
 	// Minute hand
 	Rectangle {
@@ -36,23 +40,21 @@ Rectangle {
 
 	component ClockText: Text {
 		Layout.alignment: Qt.AlignHCenter
-		color: "white"
+
+		color: Global.colors.textLight
 		font {
 			pixelSize: fontSize
-			family: root.fontFamily
+			family: Global.fonts.monospaceFamily
+			bold: true
 		}
-	}
-
-	HoverHandler {
-		id: hoverHandler
 	}
 
 	ColumnLayout {
 		visible: !hoverHandler.hovered
 
-		spacing: 0
-		width: parent.width
+		Layout.fillWidth: true
 		anchors.centerIn: parent
+		spacing: 0
 
 		ClockText {
 			text: Time.strings.hour  
@@ -60,10 +62,10 @@ Rectangle {
 
 		ClockText {
 			text: "時"
-			color: root.colSakura
+			color: Global.colors.primary
 			font {
 				pixelSize: fontSize + 1
-				family: root.fontFamily
+				bold: false
 			}
 		}
 
@@ -75,9 +77,9 @@ Rectangle {
 	ColumnLayout {
 		visible: hoverHandler.hovered
 
-		spacing: 0
-		width: parent.width
+		Layout.fillWidth: true
 		anchors.centerIn: parent
+		spacing: 0
 
 		ClockText {
 			text: Time.strings.year
@@ -85,7 +87,7 @@ Rectangle {
 
 		ClockText {
 			text: Time.strings.month
-			color: root.colSakura
+			color: Global.colors.primary
 		}
 
 		ClockText {
