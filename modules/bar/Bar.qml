@@ -10,8 +10,12 @@ PanelWindow {
 	required property var modelData
 	screen: modelData
 
+	enum Orientation { Left, Right }
+	property int orientation: Bar.Orientation.Left
+
 	anchors {
-		left: true
+		left: orientation == Bar.Orientation.Left
+		right: orientation == Bar.Orientation.Right
 		top: true
 		bottom: true
 	}

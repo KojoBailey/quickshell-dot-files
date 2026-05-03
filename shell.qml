@@ -11,7 +11,9 @@ ShellRoot {
 
 	Variants {
 		model: Quickshell.screens
-		Bar {}
+		Bar {
+			orientation: Bar.Orientation.Left
+		}
 	}
 
 	Variants {
