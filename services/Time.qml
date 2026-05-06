@@ -12,7 +12,7 @@ Singleton {
 		id: strings
 		
 		/* ddd MMM d hh:mm:ss Ap t yyyy */
-		readonly property string hour: format("hh")
+		readonly property string hour: String(clock.hours < 6 ? clock.hours + 24 : clock.hours).padStart(2, '0')
 		readonly property string minute: format("mm")
 		readonly property string second: format("ss")
 		readonly property string year: format("yy")
