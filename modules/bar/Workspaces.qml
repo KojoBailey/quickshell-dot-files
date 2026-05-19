@@ -59,7 +59,7 @@ Rectangle {
 
 				MouseArea {
 					anchors.fill: parent
-					onClicked: Hyprland.dispatch(`workspace ${trueIndex}`)
+					onClicked: Hyprland.dispatch(`hl.dsp.focus({ workspace = ${trueIndex} })`)
 				}
 
 				Text {
