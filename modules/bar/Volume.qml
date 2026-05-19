@@ -17,7 +17,7 @@ Rectangle {
 	}
 
 	Layout.fillWidth: true
-	Layout.preferredHeight: hoverHandler.hovered ? 140 : 40
+	Layout.preferredHeight: (hoverHandler.hovered ? 140 : 40) * bar.scale
 
 	radius: Global.borderRadius
 	color: Global.colors.foreground
@@ -60,7 +60,7 @@ Rectangle {
 			text: getIcon()
 			color: "#ffabed"
 			font {
-				pixelSize: 10
+				pixelSize: 10 * bar.scale
 				family: root.fontFamily
 			}
 
@@ -74,7 +74,7 @@ Rectangle {
 			text: isMuted ? "OFF" : Math.round(volume * 100)
 			color: "#ffabed"
 			font {
-				pixelSize: 10
+				pixelSize: 10 * bar.scale
 				family: root.fontFamily
 			}
 

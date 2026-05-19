@@ -11,7 +11,7 @@ Rectangle {
 	property bool isCharging: false
 
 	Layout.fillWidth: true
-	Layout.preferredHeight: 40
+	Layout.preferredHeight: 40 * bar.scale
 
 	radius: Global.borderRadius
 	color: Global.colors.foreground
@@ -76,7 +76,7 @@ Rectangle {
 		text: `${getIcon()}\n${getRelativeBattery()}`
 		color: Qt.hsla(Math.pow(percent / 100, 1/1.5) * 0.333, 1.0, 0.7, 1.0)
 		font {
-			pixelSize: 10
+			pixelSize: 10 * bar.scale
 			family: root.fontFamily
 		}
 

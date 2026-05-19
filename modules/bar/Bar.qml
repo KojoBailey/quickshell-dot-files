@@ -7,11 +7,15 @@ import qs.config
 import qs.components
 
 PanelWindow {
+	id: bar
+
 	required property var modelData
 	screen: modelData
 
 	enum Orientation { Left, Right }
 	property int orientation: Bar.Orientation.Left
+
+	property double scale: 1.3
 
 	anchors {
 		left: orientation == Bar.Orientation.Left
@@ -19,7 +23,7 @@ PanelWindow {
 		top: true
 		bottom: true
 	}
-	width: 30
+	width: 30 * bar.scale
 	color: Global.colors.background
 
 	/* Centre */

@@ -12,7 +12,7 @@ Rectangle {
 	property real brightness: 100
 
 	Layout.fillWidth: true
-	Layout.preferredHeight: hoverHandler.hovered ? 140 : 40
+	Layout.preferredHeight: (hoverHandler.hovered ? 140 : 40) * bar.scale
 
 	radius: Global.borderRadius
 	color: Global.colors.foreground
@@ -81,7 +81,7 @@ Rectangle {
 			text: getIcon()
 			color: "#ffec6e"
 			font {
-				pixelSize: 10
+				pixelSize: 10 * bar.scale
 				family: root.fontFamily
 			}
 
@@ -102,7 +102,7 @@ Rectangle {
 			text: Math.round(brightnessWidget.brightness)
 			color: "#ffec6e"
 			font {
-				pixelSize: 10
+				pixelSize: 10 * bar.scale
 				family: root.fontFamily
 			}
 

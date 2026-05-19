@@ -16,8 +16,8 @@ Slider {
 	}
 
 	orientation: Qt.Vertical
-	width: 10
-	height: hoverHandler.hovered ? 126 : 0
+	width: 10 * bar.scale
+	height: (hoverHandler.hovered ? 126 : 0) * bar.scale
 	anchors.centerIn: parent
 
 	Behavior on height {

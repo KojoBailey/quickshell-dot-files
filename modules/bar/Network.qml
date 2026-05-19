@@ -12,7 +12,7 @@ Rectangle {
 	property string ssid: "..."
 
 	Layout.fillWidth: true
-	Layout.preferredHeight: hoverHandler.hovered ? 120 : 20
+	Layout.preferredHeight: (hoverHandler.hovered ? 120 : 20) * bar.scale
 
 	radius: Global.borderRadius
 	color: Global.colors.foreground
@@ -65,7 +65,7 @@ Rectangle {
 			text: wifiWidget.isConnected ? "󰖩" : "󰖪"
 			color: "#a1d9ff"
 			font {
-				pixelSize: 10
+				pixelSize: 10 * bar.scale
 				family: root.fontFamily
 			}
 
@@ -82,7 +82,7 @@ Rectangle {
 			text: isConnected ? ssid : "Disconnected"
 			color: "#a1d9ff"
 			font {
-				pixelSize: 10
+				pixelSize: 10 * bar.scale
 				family: root.fontFamily
 			}
 			rotation: 270

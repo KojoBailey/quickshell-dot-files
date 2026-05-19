@@ -17,8 +17,8 @@ PanelWindow {
 	}
 
 	margins {
-		right: 50
-		bottom: 50
+		right: 50 * textSize/16
+		bottom: 50 * textSize/16
 	}
 
 	implicitWidth: content.width

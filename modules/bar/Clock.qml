@@ -5,10 +5,10 @@ import qs.config
 import qs.services
 
 Rectangle {
-	readonly property int fontSize: 12
+	readonly property int fontSize: 13 * bar.scale
 
 	width: parent.width
-	height: 70
+	height: 70 * bar.scale
 
 	HoverHandler { id: hoverHandler }
 
@@ -16,8 +16,8 @@ Rectangle {
 
 	// Minute hand
 	Rectangle {
-		width: 3
-		height: 15
+		width: 3 * bar.scale
+		height: 15 * bar.scale
 		radius: 50
 		color: "white"
 		opacity: 0.2
@@ -28,8 +28,8 @@ Rectangle {
 
 	// Hour hand
 	Rectangle {
-		width: 3
-		height: 10
+		width: 3 * bar.scale
+		height: 10 * bar.scale
 		radius: 50
 		color: "white"
 		opacity: 0.2

@@ -20,7 +20,7 @@ ShellRoot {
 		model: Quickshell.screens
 		ActivateLinux {
 			lang: ActivateLinux.Language.English
-			textSize: 14
+			textSize: 24
 		}
 	}
 }
